@@ -254,11 +254,11 @@ namespace Common.Utility
         /// 替换换行符
         /// </summary>
         /// <param name="content">内容</param>
-        /// <param name="replacement">替换后的内容</param>
+        /// <param name="newValue">替换后的内容</param>
         /// <returns></returns>
-        public static string ReplaceBreak(string content, string replacement)
+        public static string ReplaceNewline(string content, string newValue)
         {
-            return (content + "").Replace("\n\r", replacement).Replace("\r\n", replacement).Replace("\r", replacement).Replace("\n", replacement);
+            return (content + "").Replace("\n\r", newValue).Replace("\r\n", newValue).Replace("\r", newValue).Replace("\n", newValue).Replace("\t", newValue);
         }
 
         /// <summary>
@@ -272,11 +272,12 @@ namespace Common.Utility
         }
 
         /// <summary>
-        /// 把数组所有元素按参数名升序排序，并按照指定的格式拼接成新的字符串
+        /// 把元素以参数名称升序排序，并按照指定的格式拼接成新的字符串
+        /// 【常用语百度/支付宝/生成加密Sign】
         /// </summary>
         /// <param name="parameters">数据源</param>
         /// <param name="concatSymbol">连接符</param>
-        /// <param name="concatSymbol">分隔符</param>
+        /// <param name="separatorSymbol">分隔符</param>
         /// <param name="passNullKey">是否跳过Key为空的数据</param>
         /// <param name="passNullValue">是否跳过Value为空的数据</param>
         /// <param name="notInKeys">需要跳过处理Keys</param>
