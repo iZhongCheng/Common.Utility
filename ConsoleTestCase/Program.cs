@@ -7,8 +7,16 @@ namespace ConsoleTestCase
     {
         private static void Main(string[] args)
         {
-            var Html1 = HttpHelper.HttpGet("http://www.caogen.com/blog/Infor_detail/77018.html", "GB2312", "text/html");
-            var result = StringHelper.RemoveHTML(Html1);
+            var html = HttpHelper.HttpGet("http://china.huanqiu.com/article/2016-01/8461794.html?from=bdwz", "utf-8", "text/html");
+            var res = StringHelper.RemoveHTML(html);
+
+            var html1 = HttpHelper.HttpGet("http://www.caogen.com/blog/Infor_detail/77018.html", "GB2312", "text/html");
+            var res1 = StringHelper.RemoveHTML(html1);
+
+            CodeTimerHelper.Time("性能测试", 1000, () =>
+            {
+                StringHelper.RemoveHTML(html1);
+            });
             Console.ReadKey();
         }
     }
