@@ -60,7 +60,7 @@ namespace Common.Utility
                 foreach (PropertyInfo p in Properties)
                 {
                     if (notInKeys == null || !notInKeys.Contains(p.Name))
-                        result.Add(p.Name, p.GetValue(obj));
+                        result.Add(p.Name, p.GetValue(obj, null));
                 }
 
                 return result;

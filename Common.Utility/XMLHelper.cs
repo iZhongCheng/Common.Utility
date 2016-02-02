@@ -30,7 +30,7 @@ namespace Common.Utility
                 string xml = "<xml>";
                 foreach (PropertyInfo p in Properties)
                 {
-                    xml += "<" + p.Name + ">" + "<![CDATA[" + p.GetValue(obj) + "]]></" + p.Name + ">";
+                    xml += "<" + p.Name + ">" + "<![CDATA[" + p.GetValue(obj, null) + "]]></" + p.Name + ">";
                 }
 
                 xml += "</xml>";
