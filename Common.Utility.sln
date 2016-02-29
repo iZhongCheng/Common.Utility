@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Utility", "Common.Utility\Common.Utility.csproj", "{7CDE2779-3AFA-4905-8AF2-A213C1A7EE5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestCase", "ConsoleTestCase\ConsoleTestCase.csproj", "{541E758E-CECC-4E6F-8477-3210F39F58CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Utility.Tests", "Common.Utility.Tests\Common.Utility.Tests.csproj", "{7C2C9809-AC9A-41D2-9064-E27DA31BAF91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,10 @@ Global
 		{7CDE2779-3AFA-4905-8AF2-A213C1A7EE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CDE2779-3AFA-4905-8AF2-A213C1A7EE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CDE2779-3AFA-4905-8AF2-A213C1A7EE5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{541E758E-CECC-4E6F-8477-3210F39F58CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{541E758E-CECC-4E6F-8477-3210F39F58CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{541E758E-CECC-4E6F-8477-3210F39F58CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{541E758E-CECC-4E6F-8477-3210F39F58CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2C9809-AC9A-41D2-9064-E27DA31BAF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2C9809-AC9A-41D2-9064-E27DA31BAF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2C9809-AC9A-41D2-9064-E27DA31BAF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2C9809-AC9A-41D2-9064-E27DA31BAF91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
