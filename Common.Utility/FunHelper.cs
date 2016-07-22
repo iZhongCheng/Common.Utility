@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Common.Utility
 {
@@ -57,27 +58,62 @@ namespace Common.Utility
         }
 
         /// <summary>
-        /// 错误代码文件名
+        /// 获取导致异常的代码行号
+        /// 注：Debug 模式下才是源码里的代码行号，Release 模式下代码由于被优化，行号可能不准
+        /// 返回 -1 表示异常
         /// </summary>
         /// <param name="ex">异常</param>
-        /// <returns>错误代码文件名</returns>
-        public static string GetErrorCodeFileName(Exception ex)
+        /// <returns>代码行号</returns>
+        public static int GetErrorFileLineNumber(Exception ex)
         {
-            var trace = new StackTrace(ex, true);
-
-            return trace.GetFrame(0).GetMethod().Name;
+            try
+            {
+                var trace = new StackTrace(ex, true);
+                var index = trace.FrameCount == 1 ? 0 : trace.FrameCount - 1;
+                return trace.GetFrame(index).GetFileLineNumber();
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
         /// <summary>
-        /// 错误代码行号
+        /// 获取导致异常的代码文件名
         /// </summary>
         /// <param name="ex">异常</param>
-        /// <returns>错误代码行号</returns>
-        public static int GetErrorCodeRowNum(Exception ex)
+        /// <returns>代码文件名</returns>
+        public static string GetErrorFileName(Exception ex)
         {
-            var trace = new StackTrace(ex, true);
+            try
+            {
+                var trace = new StackTrace(ex, true);
+                var index = trace.FrameCount == 1 ? 0 : trace.FrameCount - 1;
+                return trace.GetFrame(index).GetFileName();
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
 
-            return trace.GetFrame(0).GetFileLineNumber();
+        /// <summary>
+        /// 获取导致异常的错误原因
+        /// </summary>
+        /// <param name="ex">异常</param>
+        /// <returns>错误原因</returns>
+        public static string GetErrorMessage(Exception ex)
+        {
+            try
+            {
+                var trace = new StackTrace(ex, true);
+                var fs = trace.GetFrames().Select(c => c.GetMethod().Name).Reverse();
+                return string.Join(" -> ", fs) + " -> " + ex.Message;
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         /// <summary>
