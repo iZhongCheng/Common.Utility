@@ -273,7 +273,7 @@ namespace Common.Utility
 
         /// <summary>
         /// 把元素以参数名称升序排序，并按照指定的格式拼接成新的字符串
-        /// 【常用语百度/支付宝/生成加密Sign】
+        /// 【常用于：百度/支付宝-生成加密Sign】
         /// </summary>
         /// <param name="parameters">数据源</param>
         /// <param name="concatSymbol">连接符</param>
@@ -417,7 +417,7 @@ namespace Common.Utility
             {
                 string outStr = "";
                 Regex reg = new Regex(@"\\u([0-9a-f]{4})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-                outStr = reg.Replace(content, delegate(Match m1)
+                outStr = reg.Replace(content, delegate (Match m1)
                 {
                     return ((char)Convert.ToInt32(m1.Groups[1].Value, 16)).ToString();
                 });
