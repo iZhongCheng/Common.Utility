@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Caching;
 
@@ -134,33 +132,6 @@ namespace Common.Utility
                 HttpRuntime.Cache.Remove(key);
                 HttpRuntime.Cache.Add(key, cached_value, null, expire, Cache.NoSlidingExpiration, CacheItemPriority.Default, onRemoveCallback);
             }
-        }
-    }
-
-    /// <summary>
-    /// 运行示例
-    /// </summary>
-    internal partial class Program
-    {
-        private static void Main_CacheHelper(string[] args)
-        {
-            const string cachedKey = "CachedKey";
-            const int cachedExpireMinutes = 10;
-            List<string> result;
-            if (!CacheHelper.Get<List<string>>(cachedKey, out result))
-            {
-                result = new List<string> { "填充数据", "填充数据", "填充数据" };
-                if (result != null && result.Any())
-                {
-                    CacheHelper.Set<List<string>>(cachedKey, result, DateTime.Now.AddMinutes(cachedExpireMinutes));
-                }
-            }
-
-            //if (result == null)
-            //    return new List<string>();
-            //return result;
-
-            CacheHelper.Destroy(cachedKey);
         }
     }
 }

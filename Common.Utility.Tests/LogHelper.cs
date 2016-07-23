@@ -1,0 +1,3 @@
+﻿namespace Common.Utility.Tests
+{
+}
